@@ -1,0 +1,63 @@
+- What is the difference between var and let?
+	Let is used to declare CONSTANTS and var is used to declare VARIABLES.
+- What is an optional?
+	An opcional is a type that can support or handle the lack of a value, is declared with a "?" at the end. For example 
+    "var variable: String?"
+- What is optional chaining vs optional binding?
+    Opcional binding allows you to control an optional variable that checks if the variable has or not a value, 
+    if it does then it allows you to asign a that variable to a temporal non optional variable (if let).
+    On the other hand  optional chaining stores the value of the variable, either if is a value of nil
+- What are the different ways to unwrap an optional? How do they work? Are they safe?
+    1.- Forced explicit and implicit unwrap(unsafe):
+        Works by putting a "!" at the end of the variable. Example. "
+            let x = variable! (implicit)
+            let x: String = variable! (Explicit)
+        "
+    2.- Opcional binding(safe)
+        Allows to control an optional variable that checks if the variable has or not a value, 
+        if it does then it allows you to asign a that variable to a temporal non optional variable. Example:
+        "if let a = x {
+            print("x was successfully unwrapped and is = \(a)")
+        }" 
+    3.- Optional chaining(safe)
+        Puts the value of the optional variable in an other variable or nil if it hasn't have a value. Example:
+        "let a = x?.count"
+    4.- Nil coalescing operator(safe)
+        Returns the value of the variable if it has one, if not returns something else. Example:
+        "   let name: String? = nil
+            let unwrappedName = name ?? "Anonymous"
+        "
+    5.- Guard statement(safe)
+        It transfers the program out of the scope when the imposed conditions do not acomplish. Example:
+        "guard let a = x else {
+            return
+        }"
+    6.- Optional case pattern(safe)
+        Does whatever you put inside the block of code if the imposed conditions are fufilled. Example:
+        "if case let a? = x {
+            print(a)
+        }"
+
+
+- What is a closure?
+    Is a self controlled block of functionatily, like lamdas in other lenguajes like JS.
+- What is the difference between a class and a struct?
+    Structs are value types while class are an instance reference.
+    If you copy a struct you end with a copy of the original struct, 
+    if you copy a class you end up with two references of the same instance of the data.
+- What is the syntax '??' do?
+    Returns the value of the variable if it has one, if not returns something else.
+    Example:
+        "   let id: Int? = nil
+            let objectId = id ?? 0
+        "
+- What is a tuple?
+    A tuple enables you to create and pass around groupings of values, each group value can be of any type. Example: 
+    "let http404Error = (404, "Not Found")"
+- What is Any vs AnyObject?
+    Any can represent any instance of any type at all including function and optional types
+    AnyObject can represent an instance of any class type
+- What is a protocol?
+    Defines a "blueprint" of methods and/or properties that can then be adopted by clases or other types
+- What is Delegation
+    Is a desing pattern that enables a structure or a class to delegate some responsabilities to an instance of an other type
