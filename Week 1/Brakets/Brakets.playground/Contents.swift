@@ -5,6 +5,9 @@ let greeting = "()[]{}"
 print(checkIfValid(string:greeting))
 
 func checkIfValid(string: String) -> Bool{
+    if(string.count < 1 || string.count > 10000){
+        return false
+    }
     let openingCharacters = ["[", "{", "("]
     let closingCharacters = ["]", "}", ")"]
     for i in (0..<greeting.count){
@@ -27,6 +30,3 @@ func checkIfValid(string: String) -> Bool{
     }
     return true
 }
-
-
-
