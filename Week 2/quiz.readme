@@ -1,0 +1,35 @@
+Week 2 Quiz
+
+What is a TabBarController(what are its uses)?
+R: Is used for nest and navigate multiple views where each tab item represents a view
+
+What is autoLayout?
+R: As its name says it it auto adjusts the dimensions of the elements contained in a view, respecting the restraints of each elements
+
+What is a segue?
+R: It’s used to define the flow between views. A segue defines a transition from one view to an other
+
+What methods are needed to build Tableviews?
+R: viewDidLoad() -> to define the method that you need to execute the first time that the view renders
+tableView(UITableView, numberOfRowsInSection) -> to tell the table view how many rows is going to display
+tableView(UITableView, didSelectRowAt) -> if you need to do an action when a row is clicked
+
+What is a closure?
+R: Is like a lambda function, they capture and store references to any variables in their context
+
+Are there any protocols we must conform to to build Tableviews?
+R:Not necessarily, unless you have to, an example for a use of a protocol might be if take back information from de table view is needed 
+
+Do you prefer to build your controllers in storyboard or programmatically?
+R: A combination of both for static things I like to use story board because I can design the view faster, but for a dynamic view I use a programmatically build
+
+
+What is a CollectionView?
+R: Is a Layout that organizes elements inside, like a Vertical or Horizontal Stack but it organizes the items in a matrix pattern 
+
+How does a UINavigationController work (what does it do)?
+R: It’s a container controller, needed if you plan to use navigate to another view
+
+Tell me about a time you had to work to overcome a particular engineering challenge?
+R: Understanding how navigation, redirection work, how they are related to the navigation controller and how to use them correctly
+
