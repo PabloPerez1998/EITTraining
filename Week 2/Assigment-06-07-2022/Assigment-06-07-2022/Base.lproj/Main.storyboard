@@ -115,6 +115,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="L4T-ki-J9K" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lYF-RG-3Ol">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -136,20 +137,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="7iD-IG-q7z">
-                                <rect key="frame" x="32" y="211" width="350" height="475"/>
+                                <rect key="frame" x="32" y="211" width="280" height="475"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="Gk7-6d-61j">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apples" translatesAutoresizingMaskIntoConstraints="NO" id="AH1-El-Q7V">
-                                                <rect key="frame" x="0.0" y="0.0" width="135" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="Fee-9w-XUO"/>
                                                     <constraint firstAttribute="height" constant="100" id="TSB-bF-g3r"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpT-5i-j0p">
-                                                <rect key="frame" x="215" y="0.0" width="135" height="100"/>
+                                                <rect key="frame" x="180" y="0.0" width="100" height="100"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -159,17 +160,17 @@
                                         <color key="tintColor" systemColor="systemGray2Color"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="g9L-si-g5N">
-                                        <rect key="frame" x="0.0" y="125" width="350" height="100"/>
+                                        <rect key="frame" x="0.0" y="125" width="280" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carrots" translatesAutoresizingMaskIntoConstraints="NO" id="OwO-WJ-2Pz">
-                                                <rect key="frame" x="0.0" y="0.0" width="135" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="OWy-gu-lug"/>
                                                     <constraint firstAttribute="height" constant="100" id="nBk-wS-0qs"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13 left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5Z-ak-s5Q">
-                                                <rect key="frame" x="215" y="0.0" width="135" height="100"/>
+                                                <rect key="frame" x="180" y="0.0" width="100" height="100"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -178,17 +179,17 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="n1E-VO-zzD">
-                                        <rect key="frame" x="0.0" y="250" width="350" height="100"/>
+                                        <rect key="frame" x="0.0" y="250" width="280" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="papaya" translatesAutoresizingMaskIntoConstraints="NO" id="Tgj-rT-yLQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="135" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="2jb-NR-VNO"/>
                                                     <constraint firstAttribute="width" constant="100" id="Vb9-Cn-xjp"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRa-dH-BNb">
-                                                <rect key="frame" x="215" y="0.0" width="135" height="100"/>
+                                                <rect key="frame" x="180" y="0.0" width="100" height="100"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -197,17 +198,17 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="YzE-Fq-qi2">
-                                        <rect key="frame" x="0.0" y="375" width="350" height="100"/>
+                                        <rect key="frame" x="0.0" y="375" width="280" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tomatoes" translatesAutoresizingMaskIntoConstraints="NO" id="df4-ZT-KDE">
-                                                <rect key="frame" x="0.0" y="0.0" width="135" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="KAm-v3-7Fa"/>
                                                     <constraint firstAttribute="height" constant="100" id="Lff-Lo-2UA"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZf-S5-72M">
-                                                <rect key="frame" x="215" y="0.0" width="135" height="100"/>
+                                                <rect key="frame" x="180" y="0.0" width="100" height="100"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

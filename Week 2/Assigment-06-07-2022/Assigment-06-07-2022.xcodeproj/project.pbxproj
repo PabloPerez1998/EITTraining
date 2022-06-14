@@ -15,6 +15,7 @@
 		02B426AD284FBEF30038B82A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02B426AB284FBEF30038B82A /* LaunchScreen.storyboard */; };
 		02B426B5284FD0D00038B82A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B426B4284FD0D00038B82A /* TableViewController.swift */; };
 		02B426B7284FD8740038B82A /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B426B6284FD8740038B82A /* DetailsController.swift */; };
+		02B4270B28527B580038B82A /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4270A28527B580038B82A /* GradientBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		02B426AE284FBEF30038B82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02B426B4284FD0D00038B82A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		02B426B6284FD8740038B82A /* DetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
+		02B4270A28527B580038B82A /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		02B42694284FBEF00038B82A = {
 			isa = PBXGroup;
 			children = (
+				02B4270A28527B580038B82A /* GradientBackground.swift */,
 				02B4269F284FBEF00038B82A /* Assigment-06-07-2022 */,
 				02B4269E284FBEF00038B82A /* Products */,
 			);
@@ -149,6 +152,7 @@
 				02B426B7284FD8740038B82A /* DetailsController.swift in Sources */,
 				02B426A3284FBEF00038B82A /* SceneDelegate.swift in Sources */,
 				02B426B5284FD0D00038B82A /* TableViewController.swift in Sources */,
+				02B4270B28527B580038B82A /* GradientBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
