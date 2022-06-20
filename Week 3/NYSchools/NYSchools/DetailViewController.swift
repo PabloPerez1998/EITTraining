@@ -26,7 +26,6 @@ class DetailViewController: UIViewController {
     var grades: Grade?
 
     override func viewDidLoad() {
-        print(school?.schoolSports)
         super.viewDidLoad()
         nameLabel.text = school?.name
         locationLabel.text = school?.location
