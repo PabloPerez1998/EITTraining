@@ -15,6 +15,12 @@ class ViewController: UIViewController {
     var limit: Int = 30
     var endOfPage = false
     var pokemons = [Pokemon]()
+    let database = DatabaseHandler()
+    var favorites: [PokeCore]?{
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +28,15 @@ class ViewController: UIViewController {
         getPokemons()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        favorites = database.fetch(PokeCore.self)
+    }
+    
     func setUp(){
         title = "Pokemon list"
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(PokemonTableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     func getPokemons(completed: ((Bool) -> Void)? = nil){
@@ -81,29 +92,8 @@ class ViewController: UIViewController {
                     }
                     
                 }
-            
         }
-//            var components = URLComponents(string: Conts.baseURL)!
-//            components.queryItems = [
-//                URLQueryItem(name: "offset", value: "\(self.offset)"),
-//                URLQueryItem(name: "limit", value: "\(self.limit)")
-//            ]
-            
-//            URLSession.shared.getRequest(components: components, decoding: PokemonListRequest.self){ result in
-//                switch result{
-//                case .success(let moviesRequest):
-//                    DispatchQueue.main.async {
-//                        self.pokemons.append(contentsOf: moviesRequest.results)
-//                        self.endOfPage = self.offset == 150
-//                        self.offset =  self.offset + 30 <= 150 ? self.offset + 30 : 150
-//                        self.limit = self.offset == 150 ? 1 : 30
-//                        self.tableView.reloadData()
-//                    }
-//                case .failure(let error):
-//                    print("Error: \(error)")
-//                }
-//
-//            }
+        
     }
 
 
@@ -129,19 +119,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = TableSection(rawValue: indexPath.section) else { return UITableViewCell() }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PokemonTableViewCell
         
         switch section {
             case .list:
+                let current = pokemons[indexPath.row]
+                cell.delegate = self
                 cell.textLabel?.textColor = .label
-                cell.textLabel?.text = pokemons[indexPath.row].name
-                cell.imageView?.getImage(from: URL(string: pokemons[indexPath.row].imageUrl)!)
-                cell.detailTextLabel?.text = pokemons[indexPath.row].types.joined(separator: ", ")
-                    
-//                    let newCell = cell as! PokemonTableViewCell
-//                    newCell.pokemon = pokemons[indexPath.row]
-//                    return newCell
-                    
+                cell.textLabel?.text = current.name
+                cell.imageView?.getImage(from: URL(string: current.imageUrl)!)
+                cell.detailTextLabel?.text = current.types.joined(separator: ", ")
+                cell.accessoryView?.tintColor = (favorites?.contains(where: { $0.name == current.name }))! ? .systemYellow : .gray
             case .loader:
                 cell.textLabel?.text = "Loading.."
                 cell.textLabel?.textColor = .systemBlue
@@ -190,5 +178,47 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+}
+
+extension ViewController: PassDataToList{
+    func passSelectedRowData(cell: UITableViewCell) {
+        let tappedIndex = tableView.indexPath(for: cell)!.row
+        let currentPokemon = pokemons[tappedIndex]
+        if let index = favorites?.firstIndex(where: {$0.name == currentPokemon.name}){
+            database.delete((favorites?[index])!)
+            favorites?.remove(at: index)
+        }else{
+            guard let newFavorite = database.add(PokeCore.self) else { return }
+            newFavorite.name = currentPokemon.name
+            newFavorite.imageUrl = currentPokemon.imageUrl
+            newFavorite.baseExperience = Int64(currentPokemon.baseExperience)
+            newFavorite.weight = Int64(currentPokemon.weight)
+            newFavorite.height = Int64(currentPokemon.height)
+            newFavorite.hp = Int16(currentPokemon.hp)
+            newFavorite.attack = Int16(currentPokemon.attack)
+            newFavorite.defense = Int16(currentPokemon.defense)
+            newFavorite.hp = Int16(currentPokemon.hp)
+            newFavorite.specialAttack = Int16(currentPokemon.specialAttack)
+            newFavorite.specialDefense = Int16(currentPokemon.specialDefense)
+            newFavorite.speed = Int16(currentPokemon.speed)
+            newFavorite.types = currentPokemon.types.joined(separator: ", ")
+            favorites?.append(newFavorite)
+            database.save()
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+         
+//        let foundElements = database.find(PokeCore.self, name: currentPokemon.name)
+//        if foundElements.count < 1{
+//            guard let newFavorite = database.add(PokeCore.self) else { return }
+//            newFavorite.name = currentPokemon.name
+//            favorites?.append(newFavorite)
+//            database.save()
+//        }else{
+//
+//        }
+    }
 }
 

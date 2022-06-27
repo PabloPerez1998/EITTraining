@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nzi-4q-nb7">
+                                <rect key="frame" x="0.0" y="244" width="414" height="652"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzJ-fs-gCW">
+                                <rect key="frame" x="20" y="84" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Uws-2l-xuR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MSK-Ga-qsK">
+                                <rect key="frame" x="20" y="164" width="65" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="VvP-op-f1K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Or7-FR-Nhx">
+                                <rect key="frame" x="338.5" y="164" width="55.5" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save">
+                                    <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saved:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YBH-Gh-W4o"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="Or7-FR-Nhx" firstAttribute="bottom" secondItem="MSK-Ga-qsK" secondAttribute="bottom" id="3ja-Hy-SNV"/>
+                            <constraint firstItem="Nzi-4q-nb7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7tV-Zw-zTU"/>
+                            <constraint firstItem="FzJ-fs-gCW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7yV-eY-2vM"/>
+                            <constraint firstItem="Or7-FR-Nhx" firstAttribute="trailing" secondItem="FzJ-fs-gCW" secondAttribute="trailing" id="JWs-mk-TnW"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Nzi-4q-nb7" secondAttribute="bottom" constant="-34" id="Pic-ZI-bic"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FzJ-fs-gCW" secondAttribute="trailing" constant="20" id="Pun-5U-bFU"/>
+                            <constraint firstItem="MSK-Ga-qsK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SFs-hB-eZF"/>
+                            <constraint firstItem="Nzi-4q-nb7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a9q-Ms-Q9j"/>
+                            <constraint firstItem="FzJ-fs-gCW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="hga-yf-iNj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MSK-Ga-qsK" secondAttribute="trailing" constant="329" id="j9Q-al-Cdg"/>
+                            <constraint firstItem="MSK-Ga-qsK" firstAttribute="top" secondItem="FzJ-fs-gCW" secondAttribute="bottom" constant="40" id="jLZ-HR-bGF"/>
+                            <constraint firstItem="Or7-FR-Nhx" firstAttribute="centerY" secondItem="MSK-Ga-qsK" secondAttribute="centerY" id="jwY-oh-ado"/>
+                            <constraint firstItem="Or7-FR-Nhx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MSK-Ga-qsK" secondAttribute="trailing" constant="8" symbolic="YES" id="liV-nZ-fYP"/>
+                            <constraint firstItem="Nzi-4q-nb7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="tFk-jJ-UUu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ageTextField" destination="MSK-Ga-qsK" id="UZA-Tu-JrD"/>
+                        <outlet property="nameTextField" destination="FzJ-fs-gCW" id="7H0-3P-Kbu"/>
+                        <outlet property="tableView" destination="Nzi-4q-nb7" id="dxv-bV-AjO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26.086956521739133" y="90.401785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

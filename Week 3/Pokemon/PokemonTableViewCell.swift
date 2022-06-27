@@ -7,23 +7,31 @@
 
 import UIKit
 
+protocol PassDataToList{
+    func passSelectedRowData(cell: UITableViewCell)
+}
+
 class PokemonTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var pokemonImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var typesLabel: UILabel!
     
-    var pokemon: Pokemon?
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var delegate: PassDataToList?
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-//        nameLabel.text = pokemon?.name
+        let starButton = UIButton(type: .system)
+        starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        starButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        starButton.addTarget(self, action: #selector(handleMarkAsFavorite), for: .touchUpInside)
         
+        accessoryView = starButton
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+    
+    @objc private func handleMarkAsFavorite(){
+        delegate?.passSelectedRowData(cell: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }
