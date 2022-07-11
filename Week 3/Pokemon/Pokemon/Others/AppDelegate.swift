@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import TrustKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        TrustKit.setLoggerBlock { (message) in
+              print("TrustKit log: \(message)")
+        }
+        let trustKitConfig: [String: Any] = [
+             kTSKSwizzleNetworkDelegates: false,
+             kTSKPinnedDomains: [
+                    "pokeapi.co": [
+                           kTSKEnforcePinning: true,
+                           kTSKIncludeSubdomains: true,
+                           kTSKPublicKeyHashes: [
+        //First public key -> Obtained from the Python script
+        "b'D7nVX3nnTE0NXEmTWhim6nTMVFFIJWRuXenQGaeSRIw=",
+        //Second public key in case of the first one will expire
+        "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB="
+           ],
+           kTSKReportUris:        ["https://overmind.datatheorem.com/trustkit/report"],
+         ]
+        ]]
         return true
     }
 
@@ -33,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+
+    // MARK: - Core Data Saving support
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -59,8 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-
-    // MARK: - Core Data Saving support
 
     func saveContext () {
         let context = persistentContainer.viewContext

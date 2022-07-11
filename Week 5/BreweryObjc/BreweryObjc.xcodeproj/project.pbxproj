@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		024300A0286B465100CB01A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0243009F286B465100CB01A3 /* AppDelegate.m */; };
+		024300A3286B465100CB01A3 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 024300A2286B465100CB01A3 /* SceneDelegate.m */; };
+		024300A6286B465100CB01A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 024300A5286B465100CB01A3 /* ViewController.m */; };
+		024300A9286B465100CB01A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024300A7286B465100CB01A3 /* Main.storyboard */; };
+		024300AC286B465100CB01A3 /* BreweryObjc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 024300AA286B465100CB01A3 /* BreweryObjc.xcdatamodeld */; };
+		024300AE286B465200CB01A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 024300AD286B465200CB01A3 /* Assets.xcassets */; };
+		024300B1286B465200CB01A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024300AF286B465200CB01A3 /* LaunchScreen.storyboard */; };
+		024300B4286B465200CB01A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 024300B3286B465200CB01A3 /* main.m */; };
+		024300BD286B4A9900CB01A3 /* Brewery.m in Sources */ = {isa = PBXBuildFile; fileRef = 024300BC286B4A9900CB01A3 /* Brewery.m */; };
+		024300C0286B56C900CB01A3 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 024300BF286B56C900CB01A3 /* DetailsViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0243009B286B465100CB01A3 /* BreweryObjc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreweryObjc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0243009E286B465100CB01A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0243009F286B465100CB01A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		024300A1286B465100CB01A3 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		024300A2286B465100CB01A3 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		024300A4286B465100CB01A3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		024300A5286B465100CB01A3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		024300A8286B465100CB01A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		024300AB286B465100CB01A3 /* BreweryObjc.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BreweryObjc.xcdatamodel; sourceTree = "<group>"; };
+		024300AD286B465200CB01A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		024300B0286B465200CB01A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		024300B2286B465200CB01A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		024300B3286B465200CB01A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		024300BB286B4A9900CB01A3 /* Brewery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Brewery.h; sourceTree = "<group>"; };
+		024300BC286B4A9900CB01A3 /* Brewery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Brewery.m; sourceTree = "<group>"; };
+		024300BE286B56C900CB01A3 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		024300BF286B56C900CB01A3 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02430098286B465100CB01A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02430092286B465100CB01A3 = {
+			isa = PBXGroup;
+			children = (
+				0243009D286B465100CB01A3 /* BreweryObjc */,
+				0243009C286B465100CB01A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0243009C286B465100CB01A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0243009B286B465100CB01A3 /* BreweryObjc.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0243009D286B465100CB01A3 /* BreweryObjc */ = {
+			isa = PBXGroup;
+			children = (
+				024300BA286B49D700CB01A3 /* Models */,
+				0243009E286B465100CB01A3 /* AppDelegate.h */,
+				0243009F286B465100CB01A3 /* AppDelegate.m */,
+				024300A1286B465100CB01A3 /* SceneDelegate.h */,
+				024300A2286B465100CB01A3 /* SceneDelegate.m */,
+				024300A4286B465100CB01A3 /* ViewController.h */,
+				024300A5286B465100CB01A3 /* ViewController.m */,
+				024300A7286B465100CB01A3 /* Main.storyboard */,
+				024300AD286B465200CB01A3 /* Assets.xcassets */,
+				024300AF286B465200CB01A3 /* LaunchScreen.storyboard */,
+				024300B2286B465200CB01A3 /* Info.plist */,
+				024300B3286B465200CB01A3 /* main.m */,
+				024300AA286B465100CB01A3 /* BreweryObjc.xcdatamodeld */,
+				024300BE286B56C900CB01A3 /* DetailsViewController.h */,
+				024300BF286B56C900CB01A3 /* DetailsViewController.m */,
+			);
+			path = BreweryObjc;
+			sourceTree = "<group>";
+		};
+		024300BA286B49D700CB01A3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				024300BB286B4A9900CB01A3 /* Brewery.h */,
+				024300BC286B4A9900CB01A3 /* Brewery.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0243009A286B465100CB01A3 /* BreweryObjc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 024300B7286B465200CB01A3 /* Build configuration list for PBXNativeTarget "BreweryObjc" */;
+			buildPhases = (
+				02430097286B465100CB01A3 /* Sources */,
+				02430098286B465100CB01A3 /* Frameworks */,
+				02430099286B465100CB01A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BreweryObjc;
+			productName = BreweryObjc;
+			productReference = 0243009B286B465100CB01A3 /* BreweryObjc.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		02430093286B465100CB01A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					0243009A286B465100CB01A3 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 02430096286B465100CB01A3 /* Build configuration list for PBXProject "BreweryObjc" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 02430092286B465100CB01A3;
+			productRefGroup = 0243009C286B465100CB01A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0243009A286B465100CB01A3 /* BreweryObjc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		02430099286B465100CB01A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				024300B1286B465200CB01A3 /* LaunchScreen.storyboard in Resources */,
+				024300AE286B465200CB01A3 /* Assets.xcassets in Resources */,
+				024300A9286B465100CB01A3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02430097286B465100CB01A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				024300BD286B4A9900CB01A3 /* Brewery.m in Sources */,
+				024300B4286B465200CB01A3 /* main.m in Sources */,
+				024300A6286B465100CB01A3 /* ViewController.m in Sources */,
+				024300A0286B465100CB01A3 /* AppDelegate.m in Sources */,
+				024300C0286B56C900CB01A3 /* DetailsViewController.m in Sources */,
+				024300AC286B465100CB01A3 /* BreweryObjc.xcdatamodeld in Sources */,
+				024300A3286B465100CB01A3 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		024300A7286B465100CB01A3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				024300A8286B465100CB01A3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		024300AF286B465200CB01A3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				024300B0286B465200CB01A3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		024300B5286B465200CB01A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		024300B6286B465200CB01A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		024300B8286B465200CB01A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BreweryObjc/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = us.enchanceit.training.BreweryObjc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		024300B9286B465200CB01A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BreweryObjc/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = us.enchanceit.training.BreweryObjc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		02430096286B465100CB01A3 /* Build configuration list for PBXProject "BreweryObjc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				024300B5286B465200CB01A3 /* Debug */,
+				024300B6286B465200CB01A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		024300B7286B465200CB01A3 /* Build configuration list for PBXNativeTarget "BreweryObjc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				024300B8286B465200CB01A3 /* Debug */,
+				024300B9286B465200CB01A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		024300AA286B465100CB01A3 /* BreweryObjc.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				024300AB286B465100CB01A3 /* BreweryObjc.xcdatamodel */,
+			);
+			currentVersion = 024300AB286B465100CB01A3 /* BreweryObjc.xcdatamodel */;
+			path = BreweryObjc.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 02430093286B465100CB01A3 /* Project object */;
+}
