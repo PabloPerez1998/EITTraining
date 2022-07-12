@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import MapKit
+import CoreLocation
 
 class DetailsViewModel{
     var showInfo: (() -> ())?
@@ -14,10 +16,15 @@ class DetailsViewModel{
     var hideLoading: (()->())?
     var showError: ((_ error: String)->())?
     var setButtonColor: ((_ color: String) -> ())?
+    var setMapKitRegion: ((_ region: MKCoordinateRegion) -> ())?
+    var setMapKitAnnotations: ((_ annotations: [MKPointAnnotation]) -> ())?
+    var setMapKitPolyline: ((_ polyline: MKPolyline) -> ())?
     
     var cocktail = FormatedCocktailDetails(id: "", name: "", thumbUrl: "", tags: "", category: "", alcoholic: "", glass: "", instructions: "", ingredients: [])
     let database = DatabaseHandler()
     var favorites: [CocktailCoreData]?
+    private let locationManager = CLLocationManager()
+    private let userRadiusInMeters: Double = 1000
     
     func inicializeFavorites(){
         favorites = database.fetch(CocktailCoreData.self)
@@ -116,6 +123,72 @@ class DetailsViewModel{
             color = "favorited"
         }
         setButtonColor?(color)
+    }
+    
+    func redirectToYoutube(){
+        let formatedName = cocktail.name.replacingOccurrences(of: " ", with: "+")
+        let url = "https://www.youtube.com/results?search_query=\(formatedName)+cocktail"
+        if let youtubeUrl = URL(string: url), UIApplication.shared.canOpenURL(youtubeUrl){
+            UIApplication.shared.open(youtubeUrl, options: [:], completionHandler: nil)
+        }else{
+            print("CANT OPEN THIS LINK")
+        }
+    }
+    
+    func grokUserLocation(){
+        if let location = locationManager.location?.coordinate{
+            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: userRadiusInMeters, longitudinalMeters: userRadiusInMeters)
+            setMapKitRegion?(region)
+        }
+    }
+    
+    func findSuperMarkets(){
+        if let location = locationManager.location?.coordinate{
+            let request = MKLocalSearch.Request()
+            request.naturalLanguageQuery = "Groceries"
+            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: userRadiusInMeters, longitudinalMeters: userRadiusInMeters)
+            request.region = region
+            
+            let search = MKLocalSearch(request: request)
+            search.start(){ response, error in
+                if error != nil{
+                    print("Error occured in search: \(error!.localizedDescription)")
+                }else if response!.mapItems.count == 0 {
+                    print("No matches found")
+                }else{
+                    let items = response!.mapItems.sorted(by: {
+                        (self.locationManager.location?.distance(from: $0.placemark.location!))! <
+                            (self.locationManager.location?.distance(from: $1.placemark.location!))!
+                    })
+                    var markers = [MKPointAnnotation]()
+                    var i = 0
+                    for item in items{
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = item.placemark.coordinate
+                        annotation.title = item.name
+                        var subtitle = ""
+                        if(i == 0){
+                            subtitle = "Nearest"
+//                            self.setPolylineToAnnotation(annotation)
+                        }
+                        annotation.subtitle = subtitle
+                        markers.append(annotation)
+                        i += 1
+                    }
+                    self.setMapKitAnnotations?(markers)
+                }
+            }
+        }
+        
+    }
+    
+    func setPolylineToAnnotation(_ annotation: MKAnnotationView){
+        if let location = locationManager.location?.coordinate{
+            let coordinates = [location, annotation.annotation?.coordinate] as! [CLLocationCoordinate2D]
+            print(coordinates)
+            let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+            setMapKitPolyline?(polyline)
+        }
     }
 
 }

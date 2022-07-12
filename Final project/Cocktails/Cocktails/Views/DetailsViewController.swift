@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class DetailsViewController: UIViewController {
     
@@ -19,12 +20,18 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var detailsView: UIView!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapLabel: UILabel!
     
     let viewModel = DetailsViewModel()
+    private let locationManager = CLLocationManager()
+    private let userRadiusInMeters: Double = 1000
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         initViewModel()
+        locationServicesCheck()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +41,7 @@ class DetailsViewController: UIViewController {
     func setup(){
         ingredientsTableView.delegate = self
         ingredientsTableView.dataSource = self
+        mapView.delegate = self
     }
     
     func initViewModel(){
@@ -71,7 +79,6 @@ class DetailsViewController: UIViewController {
                 self.activityIndicator.isHidden = true
             }
         }
-        
         viewModel.setButtonColor = { value in
             DispatchQueue.main.async {
                 var color:UIColor = .darkGray
@@ -81,10 +88,27 @@ class DetailsViewController: UIViewController {
                 self.changeFavButtonColor(color: color)
             }
         }
+        viewModel.setMapKitRegion = { region in
+            DispatchQueue.main.async {
+                self.mapView.setRegion(region, animated: true)
+            }
+        }
+        viewModel.setMapKitAnnotations = { annotations in
+            DispatchQueue.main.async {
+                self.mapView.addAnnotations(annotations)
+            }
+        }
+        viewModel.setMapKitPolyline = { polyline in 
+            DispatchQueue.main.async {
+                print(polyline)
+                self.mapView.addOverlay(polyline)
+            }
+        }
     }
     
     func configure(_ cocktail: Cocktail? = nil){
         if let cocktailDetails = cocktail {
+            print("IN")
             viewModel.getDetailsById(id: cocktailDetails.id)
         }else {
             viewModel.getRandomCocktai()
@@ -113,10 +137,12 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func didTapFavotiresButton(_ sender: Any) {
-        print("click")
         viewModel.setFavorite()
     }
     
+    @IBAction func didTapYoutubeButton(_ sender: Any) {
+        viewModel.redirectToYoutube()
+    }
 }
 
 extension DetailsViewController: UITableViewDelegate, UITableViewDataSource{
@@ -131,6 +157,78 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource{
         cell.detailTextLabel?.text = ingredient.measure
         return cell
     }
+    
+}
+
+extension DetailsViewController: MKMapViewDelegate, CLLocationManagerDelegate{
+    
+    private func setLocationServices(){
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    private func  checkAuthStatus(){
+        switch locationManager.authorizationStatus{
+        case .restricted, .denied:
+            break;
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            mapView.showsUserLocation = true
+        case .authorizedAlways:
+            mapView.showsUserLocation = true
+            viewModel.grokUserLocation()
+            viewModel.findSuperMarkets()
+            locationManager.startUpdatingLocation()
+        case .authorizedWhenInUse:
+            mapView.showsUserLocation = true
+            viewModel.grokUserLocation()
+            viewModel.findSuperMarkets()
+        default:
+            break
+        }
+    }
+    
+    private func locationServicesCheck(){
+        //Is GeoLocation enabled in the device
+        if CLLocationManager.locationServicesEnabled() {
+            setLocationServices()
+            checkAuthStatus()
+        }else{
+            viewModel.showError?("Could not show map")
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        annotationView.markerTintColor = annotation.subtitle == "Nearest"  ? .blue : .gray
+
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+//        mapView.removeOverlays(mapView.overlays)
+//        viewModel.setPolylineToAnnotation(view)
+        var text = "Supermarkets in the area"
+        if(text != view.annotation?.title){
+            text = (view.annotation?.title!)!
+        }
+        mapLabel.text = text
+    }
+    
+    
+//    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//        if let routePoliline = overlay as? MKPolyline{
+//            let render = MKPolylineRenderer(polyline: routePoliline)
+//            render.strokeColor = .blue
+//            render.lineWidth = 3
+//            return render
+//        }
+//
+//        return MKOverlayRenderer()
+//    }
     
     
 }

@@ -21,5 +21,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Location used to show supermarkets in the area</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to return accurate results</string>
 </dict>
 </plist>
