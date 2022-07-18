@@ -11,6 +11,8 @@ class FilterViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var cleanButton: UIButton!
     
     let filterVM = FiltersViewModel()
     var delegate: FilterProtocol?
@@ -20,6 +22,7 @@ class FilterViewController: UIViewController {
         super.viewDidLoad()
         setup()
         initViewModel()
+        setupUI()
     }
     
     func setup(){
@@ -67,11 +70,19 @@ class FilterViewController: UIViewController {
         filterVM.getFilters()
         filterVM.setCurrentFilters(currentFilters)
     }
+    
+    private func setupUI(){
+        filterButton.tintColor = .uranianBlue
+        cleanButton.tintColor = .middleBlueGreen
+    }
 
     @IBAction func didTapFilterButton(_ sender: Any) {
         filterVM.filterResults()
     }
     
+    @IBAction func didTapCleanButton(_ sender: Any) {
+        filterVM.cleanFilters()
+    }
 }
 
 extension FilterViewController: UITableViewDelegate, UITableViewDataSource{
@@ -89,7 +100,11 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource{
         let element = filterVM.getFilter(indexPath)
         cell.textLabel?.text = element?[key]
         if(filterVM.isRowSelected(indexPath)){
-            cell.backgroundColor = .systemMint
+            cell.backgroundColor = .ligthSteelBlue
+            cell.textLabel?.textColor = .black
+        }else{
+            cell.textLabel?.textColor = .white
+            cell.backgroundColor = .risingBlack
         }
         return cell
     }
@@ -100,7 +115,9 @@ extension FilterViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionButton = UIButton()
-        sectionButton.setTitle(filterVM.getFilterKeyBySection(section), for: .normal)
+        sectionButton.layer.cornerRadius = 5
+        sectionButton.clipsToBounds = true
+        sectionButton.setTitle(filterVM.getSectionTitle(section), for: .normal)
         sectionButton.backgroundColor = .systemPink
         sectionButton.tag = section
         sectionButton.addTarget(self, action: #selector(self.hideSection(sender:)), for: .touchUpInside)

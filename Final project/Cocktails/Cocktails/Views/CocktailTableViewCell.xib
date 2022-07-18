@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,40 +17,43 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UUf-4C-y7L">
-                        <rect key="frame" x="5" y="5" width="50" height="34"/>
+                        <rect key="frame" x="0.0" y="5" width="50" height="34"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="iI6-wT-nYY"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir8-7t-x35">
-                        <rect key="frame" x="274.5" y="7" width="45.5" height="31"/>
+                        <rect key="frame" x="274.5" y="6" width="45.5" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45.5" id="DFS-TU-QFG"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
-                            <color key="baseForegroundColor" systemColor="systemPinkColor"/>
-                        </buttonConfiguration>
+                        <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
                         <connections>
                             <action selector="didTapFavButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xD7-ET-584"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjR-Bg-RPb">
-                        <rect key="frame" x="65" y="0.0" width="218" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="Rzd-PH-E5D"/>
-                            <constraint firstAttribute="width" constant="218" id="gog-RV-Wsz"/>
-                        </constraints>
+                        <rect key="frame" x="50" y="0.0" width="214.5" height="44"/>
+                        <color key="backgroundColor" red="0.1529411765" green="0.16078431369999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.1529411765" green="0.16078431369999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="UUf-4C-y7L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="72l-NH-mvU"/>
+                    <constraint firstAttribute="bottom" secondItem="MjR-Bg-RPb" secondAttribute="bottom" id="7lO-Nx-JWL"/>
+                    <constraint firstItem="UUf-4C-y7L" firstAttribute="centerY" secondItem="ir8-7t-x35" secondAttribute="centerY" id="8pT-C3-PGG"/>
                     <constraint firstItem="MjR-Bg-RPb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LV0-Xv-8Au"/>
+                    <constraint firstItem="ir8-7t-x35" firstAttribute="leading" secondItem="MjR-Bg-RPb" secondAttribute="trailing" constant="10" id="Lbs-lH-c46"/>
                     <constraint firstAttribute="bottom" secondItem="ir8-7t-x35" secondAttribute="bottom" constant="6" id="a4F-g3-hm7"/>
-                    <constraint firstItem="UUf-4C-y7L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="cR2-5A-mB9"/>
+                    <constraint firstItem="UUf-4C-y7L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cR2-5A-mB9"/>
                     <constraint firstItem="UUf-4C-y7L" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gO5-iM-YEe"/>
                     <constraint firstAttribute="trailing" secondItem="ir8-7t-x35" secondAttribute="trailing" id="l7b-ki-AT2"/>
-                    <constraint firstItem="MjR-Bg-RPb" firstAttribute="leading" secondItem="UUf-4C-y7L" secondAttribute="trailing" constant="10" id="p6P-wh-bJa"/>
+                    <constraint firstItem="MjR-Bg-RPb" firstAttribute="leading" secondItem="UUf-4C-y7L" secondAttribute="trailing" id="p6P-wh-bJa"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -64,9 +66,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="heart" catalog="system" width="128" height="109"/>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
     </resources>
 </document>

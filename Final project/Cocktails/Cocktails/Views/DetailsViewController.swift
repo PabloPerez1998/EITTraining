@@ -81,7 +81,7 @@ class DetailsViewController: UIViewController {
         }
         viewModel.setButtonColor = { value in
             DispatchQueue.main.async {
-                var color:UIColor = .darkGray
+                var color:UIColor = .white
                 if(value == "favorited"){
                     color = .systemPink
                 }
@@ -124,7 +124,7 @@ class DetailsViewController: UIViewController {
         cocktailAlcoholLabel.text = cocktail.alcoholic
         cocktailCategoryLabel.text = cocktail.category
         instructionsTextView.text = cocktail.instructions
-        var color: UIColor = .darkGray
+        var color: UIColor = .white
         if(viewModel.checkIfFavorite()){
             color = .systemPink
         }
@@ -203,7 +203,7 @@ extension DetailsViewController: MKMapViewDelegate, CLLocationManagerDelegate{
             return nil
         }
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-        annotationView.markerTintColor = annotation.subtitle == "Nearest"  ? .blue : .gray
+        annotationView.markerTintColor = annotation.subtitle == "Nearest"  ? .systemPink : .gray
 
         return annotationView
     }

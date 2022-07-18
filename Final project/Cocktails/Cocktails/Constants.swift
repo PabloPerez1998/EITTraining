@@ -13,5 +13,7 @@ struct Constants{
                 detailsUrl = "\(baseUrl)/lookup.php",
                 filterListUrl = "\(baseUrl)/list.php",
                 randomUrl = "\(baseUrl)/random.php"
+    
+    
             
 }

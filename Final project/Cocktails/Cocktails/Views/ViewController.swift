@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var filtersButton: UIButton!
     
     var viewModel = MainListViewModel()
 
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupUI()
         initViewModel()
     }
     
@@ -26,6 +28,7 @@ class ViewController: UIViewController {
     }
     
     func setup(){
+        title = "Cocktails"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CocktailTableViewCell", bundle: nil), forCellReuseIdentifier: CocktailTableViewCell.identifier)
@@ -48,6 +51,10 @@ class ViewController: UIViewController {
             }
         }
         viewModel.getCocktails()
+    }
+    
+    private func setupUI(){
+        filtersButton.tintColor = .uranianBlue
     }
     
     @IBAction func didTapFiltersButton(_ sender: Any) {

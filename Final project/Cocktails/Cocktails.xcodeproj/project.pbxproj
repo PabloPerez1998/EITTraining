@@ -39,6 +39,7 @@
 		02F4C4C82879576E004DD26A /* PropertyReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4C4C72879576E004DD26A /* PropertyReflectable.swift */; };
 		02F4C4EB287C7687004DD26A /* RandomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4C4EA287C7687004DD26A /* RandomViewController.swift */; };
 		02F4C4ED287C769F004DD26A /* RandomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4C4EC287C769F004DD26A /* RandomViewModel.swift */; };
+		02F4C4F0287EECF6004DD26A /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4C4EF287EECF6004DD26A /* Extension+UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		02F4C4C72879576E004DD26A /* PropertyReflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyReflectable.swift; sourceTree = "<group>"; };
 		02F4C4EA287C7687004DD26A /* RandomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewController.swift; sourceTree = "<group>"; };
 		02F4C4EC287C769F004DD26A /* RandomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomViewModel.swift; sourceTree = "<group>"; };
+		02F4C4EF287EECF6004DD26A /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				0243014C287477A800CB01A3 /* Extension+UIViewController.swift */,
 				02430152287496DE00CB01A3 /* ImageLoader.swift */,
 				024301542874B4D300CB01A3 /* UIImageLoader.swift */,
+				02F4C4EF287EECF6004DD26A /* Extension+UIColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				024301572874DCCA00CB01A3 /* FilterViewController.swift in Sources */,
 				0285956728770AA20091B491 /* FilterProtocol.swift in Sources */,
 				024301372870FA1E00CB01A3 /* Filter.swift in Sources */,
+				02F4C4F0287EECF6004DD26A /* Extension+UIColor.swift in Sources */,
 				024301452871034600CB01A3 /* Constants.swift in Sources */,
 				024301212870D23400CB01A3 /* AppDelegate.swift in Sources */,
 				0243013E2870FF8300CB01A3 /* ExtensionURLSession+Request.swift in Sources */,

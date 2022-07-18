@@ -131,7 +131,7 @@ class DetailsViewModel{
         if let youtubeUrl = URL(string: url), UIApplication.shared.canOpenURL(youtubeUrl){
             UIApplication.shared.open(youtubeUrl, options: [:], completionHandler: nil)
         }else{
-            print("CANT OPEN THIS LINK")
+            showError?("Can not open this link, try again")
         }
     }
     
@@ -152,9 +152,9 @@ class DetailsViewModel{
             let search = MKLocalSearch(request: request)
             search.start(){ response, error in
                 if error != nil{
-                    print("Error occured in search: \(error!.localizedDescription)")
+                    self.showError?("Error occured in search: \(error!.localizedDescription)")
                 }else if response!.mapItems.count == 0 {
-                    print("No matches found")
+                    self.showError?("No matches found")
                 }else{
                     let items = response!.mapItems.sorted(by: {
                         (self.locationManager.location?.distance(from: $0.placemark.location!))! <
@@ -169,7 +169,6 @@ class DetailsViewModel{
                         var subtitle = ""
                         if(i == 0){
                             subtitle = "Nearest"
-//                            self.setPolylineToAnnotation(annotation)
                         }
                         annotation.subtitle = subtitle
                         markers.append(annotation)

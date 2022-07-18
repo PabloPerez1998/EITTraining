@@ -32,14 +32,13 @@ class CocktailTableViewCell: UITableViewCell {
     
     func configure(_ cocktail: Cocktail, isFavorite: Bool = false, canDelete: Bool = false){
         cocktailImageView.layer.borderWidth = 1
-        cocktailImageView.layer.masksToBounds = false
-        cocktailImageView.layer.borderColor = UIColor.black.cgColor
-        cocktailImageView.layer.cornerRadius = cocktailImageView.frame.height/2
+        cocktailImageView.layer.borderColor = UIColor.white.cgColor
+        cocktailImageView.layer.cornerRadius = 10
         cocktailImageView.clipsToBounds = true
-        cocktailImageView.layer.masksToBounds = true
         nameLabel.text = cocktail.name
         cocktailImageView.loadImage(at: URL(string: cocktail.thumbUrl)!)
-        let icon = canDelete ? "trash.fill" : isFavorite ? "heart.fill" : "heart"
+        let icon = canDelete ? "trash.fill" : "heart.fill"
+        favButton.tintColor = canDelete || isFavorite ? .red : .white
         favButton.setImage(UIImage(systemName: icon), for: .normal)
     }
     

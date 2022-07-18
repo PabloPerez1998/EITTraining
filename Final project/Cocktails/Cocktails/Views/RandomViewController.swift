@@ -17,11 +17,19 @@ class RandomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
+        setupUI()
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let dvc = segue.destination as? DetailsViewController{
             dvc.configure()
         }
+    }
+    
+    func setupUI(){
+        title = "Random"
+        randomButton.layer.cornerRadius = 50
+        randomButton.clipsToBounds = true
     }
     
     func  initViewModel(){

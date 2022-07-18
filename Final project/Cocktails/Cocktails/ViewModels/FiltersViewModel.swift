@@ -47,11 +47,11 @@ class FiltersViewModel{
                 switch(result){
                     case .success(let data):
                     self.filterList[item.key] = data.filters
-                   
                     case .failure(let error):
                         print(error)
                 }
                 if(i == self.filterKeys.count){
+                    self.setOpenFilters()
                     self.hideLoading?()
                     self.reloadTableView?()
                 }
@@ -62,6 +62,13 @@ class FiltersViewModel{
     
     var numberOfSections: Int {
         return filterList.count
+    }
+    
+    func setOpenFilters(){
+        let item = Array(selectedFilters).first(where: {$0.value != ""})
+        let filterIndex = Array(filterList).firstIndex(where: { $0.key == item?.key })!
+        let index = hiddenSections.firstIndex(where: { $0 == filterIndex })!
+        hiddenSections.remove(at: index)
     }
     
     func getNumberOfRowsInSection(_ section: Int) -> Int{
@@ -83,9 +90,15 @@ class FiltersViewModel{
         return result
     }
     
-    func getFilterKeyBySection(_ section: Int) -> String{
+    private func getFilterKeyBySection(_ section: Int) -> String{
         let index = filterList.index(filterList.startIndex, offsetBy: section)
         return self.filterList.keys[index];
+    }
+    
+    func getSectionTitle(_ section: Int) -> String {
+        let key = getFilterKeyBySection(section)
+        let title = selectedFilters[key] != "" ? "\(key)(1)" : key
+        return title
     }
     
     private func getFilterElementsBySection(_ section: Int) -> [[String: String]]{
@@ -139,6 +152,12 @@ class FiltersViewModel{
         if(selectedFilters[key] == value){
             selectedFilters[key] = ""
         }else{
+            selectedFilters = [
+                "Alcoholic": "",
+                "Category": "",
+                "Glass": "",
+                "Ingredient": ""
+            ]
             selectedFilters[key] = value
         }
         self.reloadTableView?()
@@ -196,7 +215,17 @@ class FiltersViewModel{
             let filterKey = filterKeys[filter.key]!
             currentFilters[filterKey] = filter.value
         }
-        self.selectedFilters = currentFilters
+        selectedFilters = currentFilters
+    }
+    
+    func cleanFilters(){
+        selectedFilters = [
+            "Alcoholic": "Alcoholic",
+            "Category": "",
+            "Glass": "",
+            "Ingredient": ""
+        ]
+        self.reloadTableView?()
     }
     
 }
